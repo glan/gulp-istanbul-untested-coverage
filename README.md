@@ -1,4 +1,4 @@
-# gulp
+# gulp-istanbul-untested-coverage
 
 ### Example usage
 
@@ -6,7 +6,7 @@
 gulp.task('test', done => {
 
   let stubCov = require('gulp-istanbul-untested-coverage');
-  let istanbulReport = require('gulp-istanbul-report');
+  let istanbulReports = require('gulp-istanbul-reports');
   let Server = require('karma').Server;
   let es = require('event-stream');
   let file = require('gulp-file');
@@ -27,7 +27,7 @@ gulp.task('test', done => {
       }))
     );
     es.merge.apply(null, coverageStreams)
-      .pipe(istanbulReport({
+      .pipe(istanbulReports({
         "text-summary": null,
         "lcovonly": "reports",
         "cobertura": "reports",
